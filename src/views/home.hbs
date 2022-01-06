@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Assignments</title>
+</head>
+<body>
+    <h1>Assignments</h1>
+    <table>
+        <th>Assignments</th>
+        <th>Score</th>
+        <th>Total</th>
+        <th>Completed</th>
+        <th>Delete</th>
+        {{#each assignmentsArray}}
+        <tr>
+            <td>{{this.assignment}}</td>
+            <td>{{this.score}}</td>
+            <td>{{this.total}}</td>
+            {{#if this.completed}}
+            <td>&#10003</td>
+            {{else}}
+            <td></td>
+            {{/if}}
+            <td><a href="/to-be-deleted/:{{this.id}}">Delete</a></td>
+        </tr>
+        {{/each}}
+    </table>
+    <p>Overall Average: {{average}}%</p>
+    <p><a href="/adding-assignment">Add an Assignment</a></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Added!</title>
+</head>
+<body>
+    <h1>Assignment Added!</h1>
+    <p>This assignment was added</p>
+    <p>Name: {{this.assignment}}</p>
+    <p>Score: {{this.score}}</p>
+    <p>Total: {{this.total}}</p>
+    {{#if this.completed}}
+        <td>Assginment Completed: Yes</td>
+    {{else}}
+        <td>Assginment Completed: No</td>
+    {{/if}}    
+    <a href="/">Back to all Assignments</a>
+</body>
+</html>
