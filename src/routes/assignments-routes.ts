@@ -41,22 +41,18 @@ routes.get("/assignment-added", (req, res) => {
     res.render("assignment-added")
 })
 
-routes.delete("/to-be-deleted/:id", (req, res) => {
+routes.get("/to-be-deleted/:id", (req, res) => {
     let tobeDeleted:number = Number.parseInt(req.params.id);
-    for (let i = 0; i < assignmentsArray.length; i++) {
-        if (assignmentsArray[i].id === tobeDeleted) {
-            assignmentsArray.splice(i, 1);
-        }
-    }
-    res.status(204);
-    res.json("delete was successful");
+    let index: number = assignmentsArray.findIndex(potato => potato.id === tobeDeleted);
+    let deleted = assignmentsArray.splice(index, 1)
+    console.log(deleted)
+    res.render("assignment-deleted", deleted)
+
 })
 
-routes.get("/to-be-deleted/:id", (req, res) => {
-    let num = Number.parseInt(req.params.id);
-    let name = assignmentsArray[num];
-    res.render("assignment-deleted", {name})
-})
+// routes.get("/to-be-deleted/:id", (req, res) => {
+//     let num = Number.parseInt(req.params.id);
+// })
 
 
 export default routes;
