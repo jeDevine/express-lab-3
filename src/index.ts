@@ -3,6 +3,7 @@ import cors from "cors";
 import path from "path";
 
 import routes from "./routes/assignments-routes";
+import apiRoutes from "./routes/api-routes";
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", routes);
+app.use("/api", apiRoutes);
+
 
 const port = 3000;
 
