@@ -16,12 +16,14 @@ apiRoutes.get("/assignments", (req, res) => {
 apiRoutes.get("/summary", (req, res) => {
     const calc = (array: Assignment[]): any => {
         for (let i = 0; i < array.length; i++) {
+            if (assignmentsArray[i].completed === true) {
             let scores = 0;
             let totals = 0;
             scores += array[i].score;
             totals += array[i].total;
             let avg = scores/totals;
             return avg;
+            }
         }
     }
     let average = calc(assignmentsArray)*100;
